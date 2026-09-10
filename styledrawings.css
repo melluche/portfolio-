@@ -1,0 +1,224 @@
+/* Reset de base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("img/fondpage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #333;
+    padding: 40px 20px;
+}
+
+/* --- BOUTON HOME / MENU --- */
+div#iconmenu1 {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 101;
+}
+
+div#iconmenu1 a#slideinmenu {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #ab9190;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+div#iconmenu1 a#slideinmenu:hover {
+    background-color: #8c7170;
+    transform: scale(1.05);
+}
+
+/* --- SIDEBAR --- */
+div#menu {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 320px;
+    height: 100vh;
+    background-color: rgb(222, 217, 217);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    transition: left 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+div#menu:target {
+    left: 0px;
+}
+
+/* Bouton Fermer */
+div#iconmenu2 {
+    text-align: right;
+    padding: 15px;
+}
+
+div#iconmenu2 a#slideoutmenu {
+    color: #8c7170;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 6px 12px;
+    border-radius: 12px;
+    transition: background-color 0.2s;
+}
+
+div#iconmenu2 a#slideoutmenu:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Liste de la Sidebar */
+div#listmenu {
+    flex: 1;
+}
+
+div#listmenu > ul {
+    list-style-type: none;
+    padding: 20px;
+}
+
+div#listmenu > ul > li {
+    margin-bottom: 15px;
+}
+
+div#listmenu > ul > li > a {
+    display: block;
+    padding: 12px 15px;
+    color: #8c7170;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    border-radius: 6px;
+    transition: background-color 0.2s, padding-left 0.2s;
+}
+
+div#listmenu > ul > li > a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding-left: 25px;
+}
+
+/* --- CONTENEUR PRINCIPAL --- */
+#main {
+    max-width: 1200px;
+    margin: 60px auto 0 auto;
+    padding: 0 10px;
+}
+
+/* Banner supérieur */
+.hero {
+    margin-bottom: 20px;
+}
+
+.badge-banner {
+    background-color: #ab9190;
+    color: #ffffff;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 0px;
+    display: inline-block;
+}
+
+.hero h1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-top: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* En-tête de page */
+.page-header {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 30px;
+    border-radius: 0px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.page-header h1 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.page-header p {
+    color: #f0f0f0;
+    font-size: 1.1rem;
+}
+
+/* --- GALERIE DE DESSINS (Correction Taille Images) --- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 0px;
+    overflow: hidden;
+    height: 320px; /* Force une hauteur fixe pour harmoniser la grille */
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajuste l'image entièrement SANS zoom géant */
+    padding: 10px; /* Petit espace esthétique autour du dessin */
+    transition: transform 0.4s ease;
+}
+
+/* Survol & Titre de l'image */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-overlay span {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #ab9190;
+    padding-bottom: 4px;
+}
