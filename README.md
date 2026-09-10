@@ -1,3 +1,3 @@
 # portfolio-
 
-Voici mon travail et mes projets.
+There are all my art projects.
